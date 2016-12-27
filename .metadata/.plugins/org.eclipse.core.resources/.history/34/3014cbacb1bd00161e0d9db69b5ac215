@@ -1,0 +1,55 @@
+package file_analyzer;
+
+import java.awt.EventQueue;
+import javax.swing.JFrame;
+
+public class FileAnalyzer {
+	// The starting point of the program. Creates an instance of the
+	// view and the controller and link them together. Then display
+	// the GUI to the user
+	public static void main(String[] args) {
+		// Uncomment for testing
+		//testingCodes();
+		
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				FileAnalyzerView _view = new FileAnalyzerView();
+				FileAnalyzerController _controller = new FileAnalyzerController(_view);
+				_view.setTitle("File Analyzer");
+				_view.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+				_view.pack();
+				_view.setResizable(true);
+				_view.setLocationRelativeTo(null);
+				_view.setVisible(true);
+			}
+		});
+	}
+	
+	// Testing codes here to make sure our methods works
+	public static void testingCodes() {
+		String [] chars = new String[17];
+		chars[0] = "A";
+		chars[1] = "B";
+		chars[2] = "A";
+		chars[3] = "A";
+		chars[4] = "/";
+		chars[5] = "!";
+		chars[6] = "!";
+		chars[7] = "!";
+		chars[8] = "C";
+		chars[9] = "D";
+		chars[10] = "B";
+		chars[11] = "A";
+		chars[12] = "F";
+		chars[13] = "G";
+		chars[14] = "B";
+		chars[15] = "B";
+		chars[16] = "A";
+		
+		// Tests cipherString function. See if the unique character
+		// threshold works on a given array
+		String newString = FileAnalyzerController.cipherString(chars, 5);
+		
+		int occurrencesTest = FileAnalyzerController.countOcurrences("", "");
+	}
+}
